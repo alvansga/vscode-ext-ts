@@ -18,12 +18,31 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Testing Tree Data View! Look at your Explorer\nby @alvansga');
 	});
 	
-	let disposable2 = vscode.commands.registerCommand('helloworld.openPROJECT', () => {
+	let disposable2 = vscode.commands.registerCommand('helloworld.openPROJECT', async () => {
 		// The code you place here will be executed every time your command is executed
-		let uri = vscode.Uri.file('D:/Working/3663/PROJECT/code');
-		let success = vscode.commands.executeCommand('vscode.openFolder', uri);
+		// let uri = vscode.Uri.file('D:/Working/3663/PROJECT/code');
+		// let success = vscode.commands.executeCommand('vscode.openFolder', uri);
+
+		const value = await vscode.window.showQuickPick(["OK","Cancel"],{placeHolder: 'Select OK or Cancel'});
+
+		// const value = await vscode.window.showQuickPick(
+		// 	[
+		// 		{ label: 'User', description: 'User Settings', target: vscode.ConfigurationTarget.Global },
+		// 		{ label: 'Workspace', description: 'Workspace Settings', target: vscode.ConfigurationTarget.Workspace }
+		// 	],
+		// 	{ placeHolder: 'Select the view to show when opening a window.' });
+		
+		console.log(value);
+		// if(value)
+		// {
+		// 	console.log('OK');
+		// }
+		// else
+		// {
+		// 	console.log('CANCEL');
+		// }
 	});
-	
+
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(disposable2);
 
