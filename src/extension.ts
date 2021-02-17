@@ -27,11 +27,19 @@ class TreeDataProvider implements vscode.TreeDataProvider<TreeItem> {
   data: TreeItem[];
 
   constructor() {
-    this.data = [new TreeItem('cars', [
-      new TreeItem(
-          'Ford', [new TreeItem('Fiesta'), new TreeItem('Focus'), new TreeItem('Mustang')]),
-      new TreeItem(
-          'BMW', [new TreeItem('320'), new TreeItem('X3'), new TreeItem('X5')])
+    this.data = [new TreeItem('MApp_DVB_Scan', [
+		new TreeItem(
+			'MApp_DTV_Scan MApp_Scan.c'),
+		new TreeItem(
+			'MApp_DTV_Scan_Update_Mux MApp_Scan.c'),
+		new TreeItem(
+			'MApp_DTV_Scan MApp_Scan_CVT.c'),
+		new TreeItem(
+			'MApp_DTV_Scan_Update_Mux MApp_Scan_CVT.c'),
+		new TreeItem(
+			'MApp_OAD_Scan MApp_OAD.c'),
+		new TreeItem(
+			'MApp_OAD_Scan_Update_Mux MApp_OAD.c')
     ])];
   }
 
