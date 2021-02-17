@@ -1,0 +1,6 @@
+history.txt
+
+- search reference in all folders
+- cek dipanggil di fungsi mana saja
+- cek apakah comment atau bukan
+- tampilkan fungsi yg memanggil dalam tree view
