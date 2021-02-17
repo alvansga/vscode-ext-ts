@@ -19,6 +19,10 @@
 			{
 				"command": "helloworld.helloWorld",
 				"title": "NewExtension: Hello World"
+			},
+			{
+				"command": "helloworld.openPROJECT",
+				"title": "NewExtension: Open PROJECT folder"
 			}
 		],
 		"views": {

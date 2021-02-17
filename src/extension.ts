@@ -18,7 +18,15 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Testing Tree Data View! Look at your Explorer\nby @alvansga');
 	});
 	
+	let disposable2 = vscode.commands.registerCommand('helloworld.openPROJECT', () => {
+		// The code you place here will be executed every time your command is executed
+		let uri = vscode.Uri.file('D:/Working/3663/PROJECT/code');
+		let success = vscode.commands.executeCommand('vscode.openFolder', uri);
+	});
+	
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(disposable2);
+
 }
 
 class TreeDataProvider implements vscode.TreeDataProvider<TreeItem> {
