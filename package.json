@@ -10,7 +10,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:helloworld.helloWorld"
+		"onCommand:helloworld.helloWorld",
+		"onView:ReferFunction"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -23,8 +24,8 @@
 		"views": {
             "explorer": [
                 {
-                    "id": "exampleView",
-                    "name": "exampleView"
+                    "id": "ReferFunction",
+                    "name": "Function Reference"
                 }
             ]
         }
