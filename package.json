@@ -18,12 +18,16 @@
 			{
 				"command": "helloworld.helloWorld",
 				"title": "NewExtension: Hello World"
-			},
-			{
-				"command": "helloworld.start",
-				"title": "NewExtension: Start"
 			}
-		]
+		],
+		"views": {
+            "explorer": [
+                {
+                    "id": "exampleView",
+                    "name": "exampleView"
+                }
+            ]
+        }
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run package",
