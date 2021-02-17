@@ -4,3 +4,21 @@ history.txt
 - cek dipanggil di fungsi mana saja
 - cek apakah comment atau bukan
 - tampilkan fungsi yg memanggil dalam tree view
+
+
+===========================
+Step by Step from beginning
+===========================
+
+1. install generator code
+    > npm install -g yo generator-code
+   tambahan:
+    > npm install -g typescript (jika nanti dicompile masih error mungkin perlu install ini)
+2. open directory utk create generate code extension -> jalankan perintah
+    > yo code
+3. typescript --> modif di extension.ts dan package.json (recommended karna lebih banyak tutorial yg pakai bahasa ini)
+   javascript --> modif di extension.js dan package.json
+4. run code dgn F5 (Run - Start Debugging) - akan muncul pop up window Extension Development Host dimana extension yg didebug akan aktif di window ini
+
+5. publish perlu install vsce (perlu buat akun publisher)
+
