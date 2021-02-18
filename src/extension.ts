@@ -11,7 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "call-hierarchy-sample" is now active!');
 
-	const disposable = vscode.languages.registerCallHierarchyProvider('plaintext', new FoodPyramidHierarchyProvider());
+	const disposable = vscode.languages.registerCallHierarchyProvider('c', new FoodPyramidHierarchyProvider());
 
 	context.subscriptions.push(disposable);
 
@@ -21,6 +21,6 @@ export function activate(context: vscode.ExtensionContext) {
 async function showSampleText(context: vscode.ExtensionContext): Promise<void> {
 	const sampleTextEncoded = await vscode.workspace.fs.readFile(vscode.Uri.file(context.asAbsolutePath('sample.txt')));
 	const sampleText = new TextDecoder('utf-8').decode(sampleTextEncoded);
-	const doc = await vscode.workspace.openTextDocument({ language: 'plaintext', content: sampleText });
+	const doc = await vscode.workspace.openTextDocument({ language: 'c', content: sampleText });
 	vscode.window.showTextDocument(doc);
 }
