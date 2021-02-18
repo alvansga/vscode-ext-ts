@@ -5,8 +5,11 @@ export class FoodPyramidHierarchyProvider implements vscode.CallHierarchyProvide
 
 	prepareCallHierarchy(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.CallHierarchyItem | undefined {
 		const range = document.getWordRangeAtPosition(position);
+		console.log("filename : " + document.fileName);
+		console.log("range prepareCallhierarchy : " + range);
 		if (range) {
 			const word = document.getText(range);
+			console.log("word : " + word);
 			return this.createCallHierarchyItem(word, '', document, range);
 		} else {
 			return undefined;
@@ -82,6 +85,7 @@ export class FoodPyramidHierarchyProvider implements vscode.CallHierarchyProvide
 	}
 
 	private createCallHierarchyItem(word: string, type: string, document: vscode.TextDocument, range: vscode.Range): vscode.CallHierarchyItem {
+		console.log("creating callhierarchyitem");
 		return new vscode.CallHierarchyItem(vscode.SymbolKind.Object, word, `(${type})`, document.uri, range, range);
 	}
 
@@ -100,9 +104,11 @@ class FoodPyramidParser {
 	parse(textDocument: vscode.TextDocument): void {
 		const pattern = /^(\w+)\s+(\w+)\s+(\w+).$/gm;
 		let match: RegExpExecArray | null;
+		console.log("textDocument.getText() : "+ textDocument.getText());
 		while ((match = pattern.exec(textDocument.getText()))) {
 			const startPosition = textDocument.positionAt(match.index);
 			const range = new vscode.Range(startPosition, startPosition.translate({ characterDelta: match[0].length }));
+			console.log("match[1]: "+ match[1] +"; match[2]: "+match[2]+"; match[3]: "+match[3]+"; match[0]: "+match[0]+"; range: "+range);
 			this._model.addRelation(new FoodRelation(match[1], match[2], match[3], match[0], range));
 		}
 	}
