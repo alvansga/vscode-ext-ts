@@ -104,7 +104,16 @@ class FoodPyramidParser {
 	parse(textDocument: vscode.TextDocument): void {
 		const pattern = /^(\w+)\s+(\w+)\s+(\w+).$/gm;
 		let match: RegExpExecArray | null;
-		console.log("textDocument.getText() : "+ textDocument.getText());
+		console.log("textDocument.lineAt(1) : "+ textDocument.lineAt(1) + "lineCount =" + textDocument.lineCount);
+		
+		for (let line = 0; line < textDocument.lineCount; line++) {
+            const textLine = textDocument.lineAt(line);
+			const match2 = pattern.exec(textLine.text);
+			console.log("looping for ke-"+line);
+			console.log("textline ke-"+line+": "+textLine.text);
+			console.log(match2);
+			}
+		
 		while ((match = pattern.exec(textDocument.getText()))) {
 			const startPosition = textDocument.positionAt(match.index);
 			const range = new vscode.Range(startPosition, startPosition.translate({ characterDelta: match[0].length }));
