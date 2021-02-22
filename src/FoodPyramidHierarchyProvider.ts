@@ -102,7 +102,7 @@ class FoodPyramidParser {
 	}
 
 	parse(textDocument: vscode.TextDocument): void {
-		const pattern = /^(\w+)\s+(\w+)\s+(\w+).$/gm;
+		const pattern = /^void (\w+)\s+\((\w+)\s+(\w+).$/gm;
 		let match: RegExpExecArray | null;
 		console.log("textDocument.lineAt(1) : "+ textDocument.lineAt(1) + "lineCount =" + textDocument.lineCount);
 		
